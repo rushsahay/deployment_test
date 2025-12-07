@@ -25,7 +25,7 @@ app.use(bodyParse.urlencoded({ extended: false }));
 app.locals.moment = moment;
 
 // Database connection
-const db = require('./config/keys').mongoProdURI;
+const db = process.env.mongoProdURI;
 mongoose
     .connect(db, { useNewUrlParser: true })
     .then(() => console.log(`Mongodb Connected`))
